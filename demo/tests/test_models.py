@@ -30,7 +30,7 @@ class TestUsers(TransactionCase):
                     'login': 'mnv',
                     'description': None
                 })
-                
+                self.env.flush()
 
 
     def test_description_one_line(self):
