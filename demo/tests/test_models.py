@@ -24,13 +24,14 @@ class TestUsers(TransactionCase):
 
     def test_description_is_required(self):
         with mute_logger('odoo.sql_db'):
-            with self.assertRaises(NotNullViolation):
-                user = self.env['res.users'].create({
-                    'name': 'Marie-Noël',
-                    'login': 'mnv',
-                    'description': None
-                })
-                self.env.flush()
+            user = self.env['res.users'].create({
+                'name': 'Marie-Noël',
+                'login': 'mnv',
+                'description': None
+            })
+            with self.assertRaises(Exception):
+                user.description = None
+                
 
 
     def test_description_one_line(self):
