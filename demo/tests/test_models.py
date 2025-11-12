@@ -27,7 +27,6 @@ class TestUsers(TransactionCase):
             user = self.env['res.users'].create({
                 'name': 'Marie-Noël',
                 'login': 'mnv',
-                'description': None
             })
             with self.assertRaises(Exception):
                 user.description = None
